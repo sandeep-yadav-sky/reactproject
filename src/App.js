@@ -9,12 +9,25 @@ import { ADD_TO_CART, REMOVE_FROM_CART } from './redux/constants';
 
 import products from "./data.json"
 
+store.subscribe(()=>{
+  let cart = store.getState();
+  console.log("store Changed",cart);
+});
+
+
+
 function DisplayCount(props) 
 {
     return (<div class="CountContainer">
     <button onClick={()=> {
       props.removeFromCart(props.price);
       props.decreaseCount();
+      store.dispatch({
+        type:REMOVE_FROM_CART,
+        payload:{
+          name:props.productName,
+        }
+      })
      }}> - </button>
     <div> {props.itemCount} </div>
     <button onClick={()=> {props.addToCart(props.price); 
@@ -34,20 +47,23 @@ function AddToCart(props){
   const [ClickedCount, setState] = useState(0);
 
   const increaseCount = ()=>{
-    console.log("hello");
     setState(ClickedCount +1);
   }
   const decreaseCount = () => {
-    console.log("hiiii");
     setState(ClickedCount - 1);
   }
-
     const ClickCount = ClickedCount;
     if(ClickCount===0){
     return (<div class = "AddToCart">
       <button onClick= {()=> {
         props.addToCart(props.price);
-      increaseCount()}}> Add To Cart </button>
+      increaseCount();
+      store.dispatch({
+        type:ADD_TO_CART,
+        payload:{
+          name:props.productName,
+        }
+      })}}> Add To Cart </button>
     </div>);
     }
 
@@ -104,7 +120,6 @@ class ProductList extends React.Component
 
 
 function App() {
-  const [itemsInCart, setItemsInCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   console.log(store);
   const addToCart = (price)=>{

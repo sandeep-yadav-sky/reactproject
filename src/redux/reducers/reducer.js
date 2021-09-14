@@ -1,12 +1,9 @@
 
-import { ADD_TO_CART } from "../constants";
-import * as products from "../../data.json"
-const initialState = {
-    cart:[{
-        name:'Adaptor',
-        count:0
-    }]
-}
+import { ADD_TO_CART, REMOVE_FROM_CART } from "../constants";
+// import * as products from "../../data.json"
+
+const initialState = []
+
 
 
 export default function reducer(state = initialState, action)
@@ -14,22 +11,26 @@ export default function reducer(state = initialState, action)
     console.log(action);
     switch (action.type) {
         case ADD_TO_CART:
-            if(state.cart.length === 0)
-            {
-                console.log([...state.cart,{name:action.payload.name, count:1}]);
-                return [...state.cart,{name:action.payload.name, count:1}];
-            }
+            let newCart = [...state];
+            let z = (newCart.findIndex(cartItem => cartItem.name === action.payload.name));
+            if(z===-1)
+                newCart = [...newCart,{name:action.payload.name,count:1}];
             else
-            {
-            // console.log([...state.cart,{name:action.payload.name, count:state.cart.count+1}]);
-            
-            let newCart = [...state.cart];
-            console.log(newCart,action.payload.name);
-            newCart[newCart.find(cartItem => cartItem.name === action.payload.name)].count+=1;
-
+                newCart[z].count+=1;
+            console.log(newCart);
             return newCart;
+        case REMOVE_FROM_CART:
+            let dupCart = [...state];
+            let index = (dupCart.findIndex(cartItem => cartItem.name === action.payload.name));
+
+            dupCart[index].count--;
+            if(dupCart[index].count === 0)
+            {
+                dupCart = dupCart.filter(item => item.name!==action.payload.name)
             }
+            console.log(dupCart);
+            return dupCart;
         default:
-            break;
+            return state;
     }
 }
