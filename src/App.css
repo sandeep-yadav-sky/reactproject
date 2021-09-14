@@ -1,38 +1,91 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
   display: flex;
-  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  border: 1px #0e0101 solid;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+}
+.App .totalPriceContainer{
+  display: flex;
+  border: 1px #0edb41 solid;
+  width: 60%;
+  height: 5%;
+  background-color: bisque;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.App .productContainer{
+  display: flex;
+  border: 1px #0edb41 solid;
+  width: 60%;
+  height: 60%;
+  background-color: bisque;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App .productContainer .Product
+{
+  display: flex;
+  border: 1px #e71717 solid;
+  flex-direction: column;
+  height: 250px;
+  width:300px;
+  background-color: rgb(163, 170, 170);
+  overflow: none;
 }
+
+
+.App .productContainer .Product .Product-price{
+  display: flex;
+  /* border: 1px #17e74b solid; */
+  flex-direction: row-reverse;
+  align-items: center;
+  height: 25px;
+  width:100%;
+  /* background-color: rgb(160, 160, 170); */
+  overflow: none;
+  font-weight: bolder;
+  color:rgb(239, 238, 241);
+}
+.App .productContainer .Product .Image-container{
+  display: flex;
+  height: 150px;
+  width:100%;
+  /* background-color: rgb(241, 245, 242); */
+  overflow: none;
+  padding: 5px 2px;
+  align-items: center;
+  overflow: hidden;
+}
+.App .productContainer .Product .Image-container img{
+  width:100%;
+  height: 100%;
+  /* background-color: rgb(241, 245, 242); */
+  padding: 10px 10px;
+}
+.App .productContainer .Product .Product-name{
+ font-weight:bold;
+}
+.App .productContainer .Product .AddToCart{
+  display: flex;
+  width:100%;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: chartreuse;
+ }
+ .App .productContainer .Product .CountContainer{
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  align-items: center;
+  justify-content: space-around;
+  background-color: chartreuse;
+ }
+
+
