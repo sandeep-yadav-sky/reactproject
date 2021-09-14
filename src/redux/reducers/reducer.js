@@ -12,11 +12,11 @@ export default function reducer(state = initialState, action)
     switch (action.type) {
         case ADD_TO_CART:
             let newCart = [...state];
-            let z = (newCart.findIndex(cartItem => cartItem.name === action.payload.name));
-            if(z===-1)
+            let position = (newCart.findIndex(cartItem => cartItem.name === action.payload.name));
+            if(position===-1)
                 newCart = [...newCart,{name:action.payload.name,count:1}];
             else
-                newCart[z].count+=1;
+                newCart[position].count+=1;
             console.log(newCart);
             return newCart;
         case REMOVE_FROM_CART:
