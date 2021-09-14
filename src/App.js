@@ -15,7 +15,6 @@ store.subscribe(()=>{
 });
 
 
-
 function DisplayCount(props) 
 {
     return (<div class="CountContainer">
