@@ -17,11 +17,21 @@
   justify-content: space-around;
   align-items: center;
 }
+.App .DisplayItemsInCart{
+  display: flex;
+  border: 1px #0edb41 solid;
+  width: 60%;
+  height: 5%;
+  background-color: bisque;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
 
 .App .productContainer{
   display: flex;
   border: 1px #0edb41 solid;
-  width: 60%;
+  width: 80%;
   height: 60%;
   background-color: bisque;
   flex-wrap: wrap;

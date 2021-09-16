@@ -5,16 +5,19 @@ import {useState} from 'react';
 import store from './redux/store';
 import { Provider } from 'react-redux';
 
+import DisplayItemsInCart from './components/DisplayIemsInCart';
 import { ADD_TO_CART, REMOVE_FROM_CART } from './redux/constants';
 
 import products from "./data.json"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from "react-router-dom";
 
-store.subscribe(()=>{
-  let cart = store.getState();
-  console.log("store Changed",cart);
-});
 
-
+ 
 function DisplayCount(props) 
 {
     return (<div class="CountContainer">
@@ -118,6 +121,7 @@ class ProductList extends React.Component
 }
 
 
+
 function App() {
   const [totalPrice, setTotalPrice] = useState(0);
   console.log(store);
@@ -133,6 +137,13 @@ function App() {
     <div className="App">
     <ProductList addToCart = {addToCart} removeFromCart = {removeFromCart}/>
     <TotalPrice totalPrice={totalPrice}/>
+    <Router>
+    <Link to="/summary">Summary</Link>
+    <Switch>
+          <Route exact path="/summary" component = {DisplayItemsInCart}>
+          </Route>
+    </Switch>      
+    </Router>
     </div>
     </Provider>
   );
