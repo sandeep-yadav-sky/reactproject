@@ -1,4 +1,4 @@
-    [
+    const products = [
     {
       "price":200,
       "img": "https://img.joomcdn.net/534fc3387dcb5fa2a654777f4ce2d02ed9784c3b_original.jpeg",
@@ -28,11 +28,6 @@
       "img": "https://www.giztop.com/media/catalog/product/cache/dc206057cdd42d7e34b9d36e347785ca/s/e/selfie_stick-3.png",
       "name": "Selfie stick",
       "description": "5m Long, 5cm Dia"
-    },
-    {
-      "price":1000,
-      "img": "https://img.tatacliq.com/images/i6/450Wx545H/MP000000007743933_450Wx545H_20200917162418.jpeg",
-      "name": "headphones",
-      "description": "Boat"
     }
   ]
+  module.exports = {products};

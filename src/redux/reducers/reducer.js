@@ -8,7 +8,6 @@ const initialState = []
 
 export default function reducer(state = initialState, action)
 {
-    console.log(action);
     switch (action.type) {
         case ADD_TO_CART:
             let newCart = [...state];
@@ -28,7 +27,6 @@ export default function reducer(state = initialState, action)
             {
                 dupCart = dupCart.filter(item => item.name!==action.payload.name)
             }
-            console.log(dupCart);
             return dupCart;
         default:
             return state;

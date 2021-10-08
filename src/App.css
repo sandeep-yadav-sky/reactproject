@@ -31,9 +31,9 @@
 .App .productContainer{
   display: flex;
   border: 1px #0edb41 solid;
-  width: 80%;
+  width: 100%;
   height: 60%;
-  background-color: bisque;
+  /* background-color: rgb(180, 178, 189); */
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
